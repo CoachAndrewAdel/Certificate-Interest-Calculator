@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Certificate Interest Calculator</title>
+	<style>
+		body {
+			background-color: black;
+			color: white;
+			font-size: 24px;
+			font-family: Arial, sans-serif;
+			text-align: center;
+			padding-top: 50px;
+		}
+		input[type="text"] {
+			background-color: #1c1c1c;
+			color: white;
+			border: none;
+			padding: 10px;
+			width: 80%;
+			margin: 20px auto;
+			display: block;
+			font-size: 24px;
+		}
+		input[type="button"] {
+			background-color: #4CAF50;
+			color: white;
+			border: none;
+			padding: 10px 20px;
+			margin: 10px;
+			border-radius: 5px;
+			font-size: 24px;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+		}
+		input[type="button"]:hover {
+			background-color: #3e8e41;
+		}
+		.result {
+			margin: 20px auto;
+			display: inline-block;
+			font-size: 24px;
+			padding: 10px;
+			border: 1px solid white;
+			border-radius: 5px;
+			min-width: 200px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Certificate Interest Calculator</h1>
+	<label for="amount">Amount (EGP):</label>
+	<input type="text" id="amount">
+	<label for="percent">Percentage:</label>
+	<input type="text" id="percent">
+	<input type="button" value="Calculate" onclick="calculate()">
+	<div class="result">
+		<h2>Yearly Result</h2>
+		<p id="yearlyResult"></p>
+	</div>
+	<div class="result">
+		<h2>Monthly Result</h2>
+		<p id="monthlyResult"></p>
+	</div>
+	<div class="result">
+		<h2>Daily Result</h2>
+		<p id="dailyResult"></p>
+	</div>
+	<div class="result">
+		<h2>Hourly Result</h2>
+		<p id="hourlyResult"></p>
+	</div>
+	<script>
+		function calculate() {
+			var amount = parseFloat(document.getElementById("amount").value);
+			var percent = parseFloat(document.getElementById("percent").value);
+			var yearlyResult = amount * percent/100;
+			document.getElementById("yearlyResult").innerHTML = "EGP " + yearlyResult.toFixed(2);
+			var monthlyResult = yearlyResult/12;
+			document.getElementById("monthlyResult").innerHTML = "EGP " + monthlyResult.toFixed(2);
+			var dailyResult = monthlyResult/30;
+			document.getElementById("dailyResult").innerHTML = "EGP " + dailyResult.toFixed(2);
+			var hourlyResult = dailyResult/24;
+			document.getElementById("hourlyResult").innerHTML = "EGP " + hourlyResult.toFixed(2);
+		}
+	</script>
+	<p>Calculator Designed by: Coach Andrew Adel</p>
+</body>
+</html>
